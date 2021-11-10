@@ -1,0 +1,3 @@
+keras
+tensorflow
+horovod[tensorflow,keras]
