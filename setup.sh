@@ -10,12 +10,17 @@ source ~/.bashrc
 
 # OpenMPI
 cd ~/
+sudo mv /usr/bin/mpirun /usr/bin/bk_mpirun
+sudo mv /usr/bin/mpirun.openmpi /usr/bin/bk_mpirun.openmpi
+sudo mv /usr/bin/orted /usr/bin/bk_orted
+sudo mv /opt/amazon/openmpi/ /opt/amazon/b_openmpi/
 wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.1.tar.gz
 tar -xvf openmpi-4.0.1.tar.gz
 cd ./openmpi-4.0.1
 ./configure --prefix=$HOME/openmpi
 sudo make -j 8 all
 sudo make install
+sudo ln -s /usr/bin/orted ~/openmpi/bin/orted
 echo 'export LD_LIBRARY_PATH=~/openmpi/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
 echo 'export PATH=~/openmpi/bin:$PATH' >> ~/.bashrc
 source ~/.bashrc
