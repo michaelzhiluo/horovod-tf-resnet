@@ -32,10 +32,16 @@ echo alias pip=pip3 >> ~/.bashrc
 source ~/.bashrc
 pip3 install tensorflow-gpu==1.14.0 keras==2.3.0
 echo 'HOROVOD_NCCL_HOME=/usr/lib/x86_64-linux-gnu HOROVOD_GPU_ALLREDUCE=NCCL HOROVOD_WITH_TENSORFLOW=1 HOROVOD_WITHOUT_PYTORCH=1 HOROVOD_WITHOUT_MXNET=1' >> ~/.bashrc
-sleep 60
+sleep 30
 source ~/.bashrc
 source ~/.bashrc
 source ~/.bashrc
 source ~/.bashrc
 source ~/.bashrc
 HOROVOD_NCCL_HOME=/usr/lib/x86_64-linux-gnu HOROVOD_GPU_ALLREDUCE=NCCL HOROVOD_WITH_TENSORFLOW=1 HOROVOD_WITHOUT_PYTORCH=1 HOROVOD_WITHOUT_MXNET=1 pip3 install --no-cache-dir horovod==0.18.0
+
+
+sleep 30
+source ~/.bashrc
+pip3 uninstall horovod
+pip3 install --no-cache-dir horovod==0.18.0
