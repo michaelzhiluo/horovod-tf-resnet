@@ -43,5 +43,5 @@ HOROVOD_NCCL_HOME=/usr/lib/x86_64-linux-gnu HOROVOD_GPU_ALLREDUCE=NCCL HOROVOD_W
 
 sleep 30
 source ~/.bashrc
-pip3 uninstall horovod
+pip3 uninstall -y horovod
 pip3 install --no-cache-dir horovod==0.18.0
