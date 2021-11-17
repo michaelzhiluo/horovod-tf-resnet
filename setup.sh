@@ -20,7 +20,7 @@ cd ./openmpi-4.0.1
 ./configure --prefix=$HOME/openmpi
 sudo make -j 8 all
 sudo make install
-sudo ln -s ~/openmpi/bin/orted /usr/bin/orted
+w
 echo 'export LD_LIBRARY_PATH=~/openmpi/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
 echo 'export PATH=~/openmpi/bin:$PATH' >> ~/.bashrc
 source ~/.bashrc
@@ -31,4 +31,7 @@ echo alias python=python3 >> ~/.bashrc
 echo alias pip=pip3 >> ~/.bashrc
 source ~/.bashrc
 pip3 install tensorflow-gpu==1.14.0 keras==2.3.0
+# Weird, it only works by uninstalling and reinstalling Horovod
+HOROVOD_NCCL_HOME=/usr/lib/x86_64-linux-gnu HOROVOD_GPU_ALLREDUCE=NCCL HOROVOD_WITH_TENSORFLOW=1 HOROVOD_WITHOUT_PYTORCH=1 HOROVOD_WITHOUT_MXNET=1 pip3 install --no-cache-dir horovod==0.18.0
+pip3 uninstall horovod
 HOROVOD_NCCL_HOME=/usr/lib/x86_64-linux-gnu HOROVOD_GPU_ALLREDUCE=NCCL HOROVOD_WITH_TENSORFLOW=1 HOROVOD_WITHOUT_PYTORCH=1 HOROVOD_WITHOUT_MXNET=1 pip3 install --no-cache-dir horovod==0.18.0
