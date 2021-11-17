@@ -20,7 +20,7 @@ cd ./openmpi-4.0.1
 ./configure --prefix=$HOME/openmpi
 sudo make -j 8 all
 sudo make install
-sudo ln -s /usr/bin/orted ~/openmpi/bin/orted
+sudo ln -s ~/openmpi/bin/orted /usr/bin/orted
 echo 'export LD_LIBRARY_PATH=~/openmpi/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
 echo 'export PATH=~/openmpi/bin:$PATH' >> ~/.bashrc
 source ~/.bashrc
